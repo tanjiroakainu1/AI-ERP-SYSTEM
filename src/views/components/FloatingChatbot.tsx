@@ -32,11 +32,11 @@ export function FloatingChatbot() {
     {
       role: 'assistant',
       content:
-        "Hi — I'm here to help. Ask a question, open a helpdesk-style ticket in chat, or get structured guidance. How can I assist you today?",
+        "Hi — you can ask me anything: general topics, coding, writing, how-tos, or help understanding this ERP (products, orders, exams, library, tours, courses, activity logs, etc.). I do not see your live data—just describe what you need. What is on your mind?",
     },
   ])
 
-  const title = useMemo(() => 'Copilot', [])
+  const title = useMemo(() => 'Ask AI', [])
 
   useEffect(() => {
     const el = scrollRef.current
@@ -97,12 +97,12 @@ export function FloatingChatbot() {
                   {title}
                 </h3>
                 <p className="text-[11px] font-medium text-white/80 sm:text-xs">
-                  <span className="inline-flex items-center gap-1.5">
+                  <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
                     <span className="relative flex h-2 w-2 shrink-0">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                     </span>
-                    Online · Ready
+                    Ask anything · General + ERP help
                   </span>
                 </p>
               </div>
@@ -155,7 +155,7 @@ export function FloatingChatbot() {
             <div className="flex items-end gap-2 rounded-2xl border border-slate-700/80 bg-slate-800/60 p-1.5 pl-2.5 shadow-inner focus-within:border-cyan-500/40 focus-within:ring-2 focus-within:ring-cyan-500/20 sm:pl-3">
               <input
                 type="text"
-                placeholder="Message…"
+                placeholder="Ask anything…"
                 className="min-h-[44px] min-w-0 flex-1 bg-transparent py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none sm:py-2.5"
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
@@ -174,8 +174,8 @@ export function FloatingChatbot() {
                 </svg>
               </button>
             </div>
-            <p className="mt-1.5 text-center text-[10px] text-slate-500 sm:mt-2">
-              AI can make mistakes · Verify important information
+            <p className="mt-1.5 text-center text-[10px] leading-snug text-slate-500 sm:mt-2">
+              Ask anything—general or app-related · No access to your private records · Verify important info
             </p>
           </form>
         </div>
@@ -190,7 +190,7 @@ export function FloatingChatbot() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-40" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
           </span>
-          <span className="relative">Ask AI</span>
+          <span className="relative">Ask anything</span>
         </button>
       )}
     </div>

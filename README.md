@@ -10,7 +10,7 @@ ERP frontend starter with an MVC-style structure and two portals:
 - Unified authentication for all roles
 - Client-only registration flow
 - Local persistence: uses `localStorage` through a store model
-- Unified floating AI chatbot (ask anything + AI Helpdesk Assistant + healthcare education scopes)
+- Unified floating **Ask AI** (OpenRouter): ask anything—general questions, coding, writing, or ERP module help; no access to your live app data
 
 ## Stack
 
@@ -90,13 +90,9 @@ VITE_OPENROUTER_MODEL=openrouter/auto
 npm run dev
 ```
 
-3. Use the floating `AI Chatbot` button in the bottom-right corner.
+3. Use the floating **Ask anything** button (bottom-right) to open the assistant.
 4. If you receive `402`, add OpenRouter credits or switch to an available free model in `VITE_OPENROUTER_MODEL`.
-5. Chatbot scope includes:
-   - Ask-anything assistant
-   - AI Helpdesk Assistant
-   - Drug Discovery support
-   - Personalized Treatment Plans support (educational)
+5. The assistant is **general-purpose** (any topic) and can explain ERP concepts; it does **not** read your database—describe your screen or paste IDs if needed.
 
 Reference: [OpenRouter Keys](https://openrouter.ai/workspaces/default/keys)
 

@@ -29,8 +29,13 @@ export async function requestOpenRouterReply(
     throw new Error('Missing VITE_OPENROUTER_API_KEY in environment.')
   }
 
-  const systemPrompt =
-    'You are a modern enterprise copilot inside an ERP product. Chat in a natural, warm, confident 2026-style tone: short opening, then clear help. Use bullet lists or numbered steps when they help scanability. Capabilities: general Q&A, helpdesk-style troubleshooting and how-tos, and educational healthcare R&D context (drug discovery, treatment planning support) without giving diagnoses. Never give emergency medical instructions; for clinical decisions, direct users to qualified professionals.'
+  /** General-purpose assistant: users can ask anything; ERP context is optional help. */
+  const systemPrompt = [
+    'You are a versatile AI assistant inside an ERP web app. Users may ask you ANYTHING: general knowledge, explanations, coding, writing, math, brainstorming, learning, productivity, creative tasks, casual conversation, and conceptual help about this product (modules like products, orders, exams, library, campus, e-learning, courses, audit logs).',
+    'Tone: clear, friendly, concise; use bullets or numbered steps when they improve readability.',
+    'This chat has no live access to the user database or their screen. If they need exact records, IDs, or private data, say you cannot see their data and point them to the relevant screen in the app (e.g. Admin/Client modules, Activity log).',
+    'Refuse requests for illegal or clearly harmful content. For health: educational info only—no diagnosis or emergency medical instructions; defer to qualified professionals for clinical decisions.',
+  ].join(' ')
 
   const response = await fetch(OPENROUTER_URL, {
     method: 'POST',
@@ -38,10 +43,11 @@ export async function requestOpenRouterReply(
       Authorization: `Bearer ${key}`,
       'Content-Type': 'application/json',
       'HTTP-Referer': window.location.origin,
-      'X-Title': 'ERP Copilot',
+      'X-Title': 'ERP Ask AI',
     },
     body: JSON.stringify({
       model,
+      temperature: 0.75,
       messages: [
         { role: 'system', content: systemPrompt },
         ...messages.map((message) => ({
