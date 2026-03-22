@@ -18,6 +18,7 @@ ERP frontend starter with an MVC-style structure and two portals:
 - Tailwind CSS
 - ESLint + strict TypeScript config
 - Futuristic dark UI with animated lightning backdrop (see `LightningBackdrop`, `index.css`)
+- **Responsive admin/client navigation:** full-width module picker on small screens; horizontal scroll tabs from `md` up (`ModuleNavPicker`)
 
 ## Project Structure
 

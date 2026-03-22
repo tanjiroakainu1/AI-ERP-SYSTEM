@@ -17,11 +17,11 @@ const features = [
 export function PublicHomePage({ onLogin, onRegister }: Props) {
   return (
     <div className="mx-auto min-w-0 max-w-4xl">
-      <section className="rounded-2xl border border-cyan-500/25 bg-slate-950/55 p-6 shadow-[0_0_60px_-12px_rgba(34,211,238,0.3)] backdrop-blur-xl sm:p-10">
+      <section className="rounded-2xl border border-cyan-500/25 bg-slate-950/55 p-4 shadow-[0_0_60px_-12px_rgba(34,211,238,0.3)] backdrop-blur-xl sm:p-8 md:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400/80">
           Welcome
         </p>
-        <h2 className="mt-2 bg-gradient-to-r from-cyan-200 via-white to-violet-300 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
+        <h2 className="mt-2 bg-gradient-to-r from-cyan-200 via-white to-violet-300 bg-clip-text text-2xl font-bold tracking-tight text-transparent sm:text-3xl md:text-4xl">
           {APP_NAME}
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
@@ -48,7 +48,7 @@ export function PublicHomePage({ onLogin, onRegister }: Props) {
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2">
+      <section className="mt-6 grid gap-3 sm:grid-cols-2 sm:mt-8 md:gap-4">
         {features.map((f) => (
           <article
             key={f.title}

@@ -28,16 +28,16 @@ export function App() {
   return (
     <>
       <LightningBackdrop />
-      <main className="relative z-10 min-h-dvh min-w-0 overflow-x-hidden px-3 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] text-slate-100 sm:px-4 sm:py-8">
+      <main className="relative z-10 min-h-dvh min-w-0 overflow-x-clip px-3 py-4 pb-[max(1.25rem,env(safe-area-inset-bottom,0px))] text-slate-100 sm:px-4 sm:py-8">
         <div className="mx-auto min-w-0 max-w-7xl">
-          <header className="mb-6 rounded-2xl border border-cyan-500/25 bg-slate-950/60 p-4 shadow-[0_0_50px_-12px_rgba(34,211,238,0.35)] backdrop-blur-xl sm:p-5">
-            <h1 className="bg-gradient-to-r from-cyan-200 via-white to-violet-300 bg-clip-text text-2xl font-bold tracking-tight text-transparent sm:text-3xl">
+          <header className="mb-4 rounded-2xl border border-cyan-500/25 bg-slate-950/60 p-3 shadow-[0_0_50px_-12px_rgba(34,211,238,0.35)] backdrop-blur-xl sm:mb-6 sm:p-5">
+            <h1 className="bg-gradient-to-r from-cyan-200 via-white to-violet-300 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl md:text-3xl">
               {APP_NAME}
             </h1>
             {user && (
-              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-slate-300">
-                  Logged in as{' '}
+              <div className="mt-3 flex flex-col gap-3 sm:mt-4 sm:flex-row sm:items-center sm:justify-between">
+                <p className="min-w-0 break-words text-sm text-slate-300 sm:break-normal">
+                  <span className="block sm:inline">Logged in as </span>
                   <span className="font-semibold text-cyan-200">{user.email}</span>{' '}
                   <span className="text-violet-300">({user.role})</span>
                 </p>

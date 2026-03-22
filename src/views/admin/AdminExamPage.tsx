@@ -15,7 +15,7 @@ export function AdminExamPage({ controllers, activity, userEmail }: Props) {
   const papers = controllers.examPapers.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <CrudSection<ExamManagementSystem>
         title="Exam management modules"
         fields={[

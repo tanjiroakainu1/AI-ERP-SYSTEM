@@ -11,6 +11,7 @@ import { AdminElearningPage } from './admin/AdminElearningPage'
 import { AdminAcademicPage } from './admin/AdminAcademicPage'
 import { AdminCoursePage } from './admin/AdminCoursePage'
 import { AdminActivityPage } from './admin/AdminActivityPage'
+import { ModuleNavPicker } from './components/ModuleNavPicker'
 
 interface Props {
   controllers: AdminController
@@ -133,27 +134,16 @@ export function AdminDashboard({ controllers, activity, userEmail }: Props) {
   }
 
   return (
-    <div className="grid gap-4">
-      <section className="rounded-2xl border border-cyan-500/25 bg-slate-950/55 p-4 shadow-[0_0_40px_-12px_rgba(34,211,238,0.25)] backdrop-blur-xl sm:p-5">
-        <h2 className="text-lg font-semibold text-cyan-100">Admin Modules</h2>
-        <p className="mt-1 text-sm text-slate-400">Select a module to manage records.</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {pages.map((page) => (
-            <button
-              key={page.key}
-              type="button"
-              onClick={() => setActivePage(page.key)}
-              className={`touch-manipulation rounded-xl border px-3 py-2.5 text-left text-sm font-semibold leading-snug transition sm:py-2 ${
-                activePage === page.key
-                  ? 'border-cyan-400/50 bg-gradient-to-r from-cyan-600/40 to-violet-600/40 text-white shadow-[0_0_20px_-4px_rgba(34,211,238,0.35)]'
-                  : 'border-slate-700/80 bg-slate-900/60 text-slate-300 hover:border-cyan-500/30 hover:text-white'
-              }`}
-            >
-              {page.label}
-            </button>
-          ))}
-        </div>
-      </section>
+    <div className="grid min-w-0 gap-3 md:gap-4">
+      <ModuleNavPicker
+        id="admin-module-nav"
+        heading="Admin Modules"
+        description="Select a module to manage records."
+        pages={pages}
+        active={activePage}
+        onSelect={setActivePage}
+        variant="admin"
+      />
 
       {renderActivePage()}
     </div>

@@ -10,6 +10,7 @@ import { ClientElearningPage } from './client/ClientElearningPage'
 import { ClientAcademicPage } from './client/ClientAcademicPage'
 import { ClientCoursePage } from './client/ClientCoursePage'
 import { ClientActivityPage } from './client/ClientActivityPage'
+import { ModuleNavPicker } from './components/ModuleNavPicker'
 
 interface Props {
   controllers: ClientController
@@ -122,26 +123,16 @@ export function ClientDashboard({ controllers, activity, userEmail }: Props) {
   }
 
   return (
-    <div className="grid gap-4">
-      <section className="rounded-2xl border border-violet-500/25 bg-slate-950/55 p-4 shadow-[0_0_40px_-12px_rgba(139,92,246,0.22)] backdrop-blur-xl sm:p-5">
-        <h2 className="text-lg font-semibold text-violet-100">Client Modules</h2>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {pages.map((page) => (
-            <button
-              key={page.key}
-              type="button"
-              onClick={() => setActivePage(page.key)}
-              className={`touch-manipulation rounded-xl border px-3 py-2.5 text-left text-sm font-semibold leading-snug transition sm:py-2 ${
-                activePage === page.key
-                  ? 'border-violet-400/50 bg-gradient-to-r from-violet-600/40 to-cyan-600/35 text-white shadow-[0_0_20px_-4px_rgba(139,92,246,0.35)]'
-                  : 'border-slate-700/80 bg-slate-900/60 text-slate-300 hover:border-violet-500/30 hover:text-white'
-              }`}
-            >
-              {page.label}
-            </button>
-          ))}
-        </div>
-      </section>
+    <div className="grid min-w-0 gap-3 md:gap-4">
+      <ModuleNavPicker
+        id="client-module-nav"
+        heading="Client Modules"
+        description="Choose a module below."
+        pages={pages}
+        active={activePage}
+        onSelect={setActivePage}
+        variant="client"
+      />
 
       {renderActivePage()}
     </div>

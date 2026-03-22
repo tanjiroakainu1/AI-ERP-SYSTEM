@@ -22,7 +22,7 @@ export function ClientElearningPage({ controllers, activity, userEmail }: Props)
   const histories = controllers.clientElearningHistories.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <ReadOnlySection<ELearningManagementSystem>
         title="E-learning modules (from Admin)"
         fields={[

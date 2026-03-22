@@ -14,7 +14,7 @@ export function ClientActivityPage({ activity, userEmail }: Props) {
   const records = activity.list().filter((row) => row.actorEmail === userEmail)
 
   return (
-    <div className="grid gap-4" key={tick}>
+    <div className="grid min-w-0 gap-3 md:gap-4" key={tick}>
       <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-violet-500/20 bg-slate-950/55 px-4 py-3">
         <p className="min-w-0 flex-1 text-sm text-slate-300">Your actions across all client modules.</p>
         <button

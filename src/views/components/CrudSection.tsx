@@ -59,13 +59,19 @@ export function CrudSection<T extends BaseEntity>({
   }
 
   return (
-    <section className="rounded-2xl border border-cyan-500/20 bg-slate-950/55 p-4 shadow-[0_0_40px_-12px_rgba(34,211,238,0.25)] backdrop-blur-xl sm:p-5">
-      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="text-lg font-semibold text-cyan-100">{title}</h2>
+    <section className="min-w-0 max-w-full rounded-2xl border border-cyan-500/20 bg-slate-950/55 p-3 shadow-[0_0_40px_-12px_rgba(34,211,238,0.25)] backdrop-blur-xl sm:p-5">
+      <div className="mb-3 flex flex-col gap-1 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="text-base font-semibold leading-snug text-cyan-100 sm:text-lg">{title}</h2>
         <p className="text-sm text-slate-400">Total: {records.length}</p>
       </div>
+      <p className="mb-2 text-[11px] leading-snug text-slate-500 lg:hidden">
+        Swipe sideways on the table to see all columns.
+      </p>
 
-      <form className="mb-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4" onSubmit={handleSubmit}>
+      <form
+        className="mb-3 grid grid-cols-1 gap-2 sm:mb-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+        onSubmit={handleSubmit}
+      >
         {fields.map((field) => (
           <input
             key={String(field.key)}
@@ -84,14 +90,18 @@ export function CrudSection<T extends BaseEntity>({
         ))}
         <button
           type="submit"
-          className="min-h-11 w-full touch-manipulation rounded-lg bg-gradient-to-r from-cyan-600 to-violet-600 px-3 py-2.5 text-sm font-semibold text-white shadow-[0_0_24px_-4px_rgba(34,211,238,0.45)] transition hover:brightness-110 sm:col-span-2 sm:min-h-0 sm:w-auto sm:py-2 lg:col-span-1"
+          className="min-h-11 w-full touch-manipulation rounded-lg bg-gradient-to-r from-cyan-600 to-violet-600 px-3 py-2.5 text-sm font-semibold text-white shadow-[0_0_24px_-4px_rgba(34,211,238,0.45)] transition hover:brightness-110 sm:col-span-2 sm:min-h-0 sm:w-auto sm:py-2 xl:col-span-1 2xl:col-span-1"
         >
           {editId ? 'Update' : 'Create'}
         </button>
       </form>
 
-      <div className="-mx-1 overflow-x-auto rounded-xl border border-cyan-500/10 bg-slate-950/40 sm:mx-0">
-        <table className="w-full min-w-[600px] border-collapse text-left text-xs md:min-w-0 md:text-sm">
+      <div
+        className="relative -mx-1 w-full min-w-0 max-w-full touch-scroll-x overflow-x-auto overscroll-x-contain rounded-xl border border-cyan-500/10 bg-slate-950/40 sm:mx-0"
+        role="region"
+        aria-label="Data table, scroll horizontally on small screens"
+      >
+        <table className="w-full min-w-[600px] border-collapse text-left text-[0.8125rem] leading-snug sm:text-sm lg:min-w-0 lg:text-[0.9375rem]">
           <thead>
             <tr className="border-b border-cyan-500/20 bg-slate-900/50">
               {fields.map((field) => (

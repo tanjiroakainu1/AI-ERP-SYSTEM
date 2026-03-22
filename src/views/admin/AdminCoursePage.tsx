@@ -15,7 +15,7 @@ export function AdminCoursePage({ controllers, activity, userEmail }: Props) {
   const offerings = controllers.courseOfferings.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <CrudSection<CourseManagementSystem>
         title="Course management modules"
         fields={[

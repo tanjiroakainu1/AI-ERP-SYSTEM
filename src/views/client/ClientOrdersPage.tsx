@@ -18,7 +18,7 @@ export function ClientOrdersPage({ controllers, activity, userEmail }: Props) {
   const orders = controllers.orders.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <ReadOnlySection<Customer>
         title="Reference: Customers (your Customer ID)"
         fields={[

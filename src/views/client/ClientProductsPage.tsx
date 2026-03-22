@@ -17,7 +17,7 @@ export function ClientProductsPage({ controllers, activity, userEmail }: Props) 
   const histories = controllers.clientProductHistories.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <ReadOnlySection<Product>
         title="Product Catalog (from Admin)"
         fields={[

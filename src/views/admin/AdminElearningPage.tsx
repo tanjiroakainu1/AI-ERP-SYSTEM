@@ -15,7 +15,7 @@ export function AdminElearningPage({ controllers, activity, userEmail }: Props) 
   const lessons = controllers.elearningLessons.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <CrudSection<ELearningManagementSystem>
         title="E-learning management modules"
         fields={[

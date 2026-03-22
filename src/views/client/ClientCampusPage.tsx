@@ -18,7 +18,7 @@ export function ClientCampusPage({ controllers, activity, userEmail }: Props) {
   const histories = controllers.clientCampusHistories.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <ReadOnlySection<CampusManagementSystem>
         title="Campus modules (from Admin)"
         fields={[

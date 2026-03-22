@@ -22,7 +22,7 @@ export function ClientCoursePage({ controllers, activity, userEmail }: Props) {
   const histories = controllers.clientCourseHistories.list()
 
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-3 md:gap-4">
       <ReadOnlySection<CourseManagementSystem>
         title="Course modules (from Admin)"
         fields={[

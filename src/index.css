@@ -22,6 +22,34 @@ body {
 
 #root {
   min-height: 100dvh;
+  min-width: 0;
+}
+
+/* Smooth horizontal scroll for module nav + data tables (iOS / touch) */
+@layer utilities {
+  .touch-scroll-x {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-color: rgba(34, 211, 238, 0.35) transparent;
+  }
+
+  .touch-scroll-x::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .touch-scroll-x::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background: rgba(34, 211, 238, 0.35);
+  }
+
+  /* Violet tables (read-only sections) */
+  .touch-scroll-x--violet {
+    scrollbar-color: rgba(139, 92, 246, 0.45) transparent;
+  }
+
+  .touch-scroll-x--violet::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.45);
+  }
 }
 
 @keyframes chat-dot {
