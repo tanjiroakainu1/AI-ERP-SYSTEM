@@ -1,0 +1,92 @@
+# ERP System (React + TypeScript + Tailwind)
+
+ERP frontend starter with an MVC-style structure and two portals:
+
+- **Public home** for visitors (marketing overview, Login / Register CTAs)
+- Admin portal: CRUD for products, customers, orders
+- Client portal: module navigation with catalog views and personal activity tracking where applicable
+- Unified authentication for all roles
+- Client-only registration flow
+- Local persistence: uses `localStorage` through a store model
+- Unified floating AI chatbot (ask anything + AI Helpdesk Assistant + healthcare education scopes)
+
+## Stack
+
+- React + TypeScript + Vite
+- Tailwind CSS
+- ESLint + strict TypeScript config
+- Futuristic dark UI with animated lightning backdrop (see `LightningBackdrop`, `index.css`)
+
+## Project Structure
+
+- `src/models`: data layer (`ErpStore`)
+- `src/controllers`: business logic and CRUD controllers
+- `src/views`: UI views and reusable CRUD section component
+- `src/types`: ERP entities (`Product`, `Customer`, `Order`)
+
+## Run
+
+```bash
+npm install
+npm run dev
+```
+
+## Validate
+
+```bash
+npm run lint
+npm run build
+```
+
+## Deploy (Vercel)
+
+This app is a **Vite + React SPA**. The repo includes `vercel.json` with:
+
+- `npm run build` → static output in `dist/`
+- SPA fallback: all routes rewrite to `index.html` (client-side navigation)
+- Long cache headers for hashed `/assets/*` files
+
+**Steps:** Import the Git repo in [Vercel](https://vercel.com), keep defaults (Node 18+), and deploy. No server is required.
+
+Optional: add environment variables in the Vercel project for the AI chatbot (`VITE_OPENROUTER_*` as in [AI Chatbot Setup](#ai-chatbot-setup-openrouter)).
+
+## Default Accounts
+
+- Admin: `admin@gmail.com` / `admin123`
+- Client: `client@gmail.com` / `client123`
+
+## Authentication Rules
+
+- Unified login handles both admin and client roles.
+- Registration creates **client** accounts only.
+- Admin manages master data; client workflows use dedicated activity records (sample seed data included).
+
+## AI Chatbot Setup (OpenRouter)
+
+1. Create `.env.local` in project root:
+
+```bash
+VITE_OPENROUTER_API_KEY=your_openrouter_key
+VITE_OPENROUTER_MODEL=openrouter/auto
+```
+
+2. Start app:
+
+```bash
+npm run dev
+```
+
+3. Use the floating `AI Chatbot` button in the bottom-right corner.
+4. If you receive `402`, add OpenRouter credits or switch to an available free model in `VITE_OPENROUTER_MODEL`.
+5. Chatbot scope includes:
+   - Ask-anything assistant
+   - AI Helpdesk Assistant
+   - Drug Discovery support
+   - Personalized Treatment Plans support (educational)
+
+Reference: [OpenRouter Keys](https://openrouter.ai/workspaces/default/keys)
+
+## Credits
+
+- **Developer:** Raminder Jangao
+- App name and credits are centralized in `src/constants/siteMeta.ts`.
