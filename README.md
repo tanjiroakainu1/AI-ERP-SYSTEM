@@ -1,5 +1,7 @@
 # ERP System (React + TypeScript + Tailwind)
 
+**Repository:** [github.com/tanjiroakainu1/AI-ERP-SYSTEM](https://github.com/tanjiroakainu1/AI-ERP-SYSTEM)
+
 ERP frontend starter with an MVC-style structure and two portals:
 
 - **Public home** for visitors (marketing overview, Login / Register CTAs)
@@ -23,6 +25,18 @@ ERP frontend starter with an MVC-style structure and two portals:
 - `src/controllers`: business logic and CRUD controllers
 - `src/views`: UI views and reusable CRUD section component
 - `src/types`: ERP entities (`Product`, `Customer`, `Order`)
+
+## Git: push to GitHub
+
+If this folder is already a git repo with `origin` set to the URL above, push from your machine:
+
+```bash
+git push -u origin main
+```
+
+**Authentication (HTTPS):** GitHub no longer accepts account passwords for Git. Use a **Personal Access Token** (classic) with `repo` scope, or use **SSH**, or run `gh auth login` ([GitHub CLI](https://cli.github.com/)).
+
+Never commit tokens or add them to the remote URL in tracked files.
 
 ## Run
 
